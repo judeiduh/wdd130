@@ -87,13 +87,12 @@ article {
 }
 
 article img {
-  width: 100px;
-  display: flex;
-  flex: 1;
+  width: 150px; /* Increased from 100px for better visibility */
   float: right;
   margin: 0 0 15px 15px;
   border: 1px solid rgba(23, 163, 145, 0.3);
   box-shadow: 0 0 30px #2bd3df;
+  /* Remove display: flex and flex:1 */
 }
 
 
