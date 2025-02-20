@@ -1,11 +1,13 @@
-/* Reset and Base Styles */
 :root {
-    --primary-color:  #006400; /* Dark green */
-    --secondary-color:  #FFD700; /* Gold */
-    --font-family-primary: 'Nunito Sans';
-    --font-family-secondary: 'Roboto';
+    --primary-color: #006400;
+    --secondary-color: #FFD700;
+    --background-light: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --font-primary: 'Nunito Sans', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
 }
 
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,49 +15,70 @@
 }
 
 body {
-    color: var(--primary-color); 
-    font-family: var(--font-family-primary);
+    font-family: var(--font-primary);
     line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Prevents inline spacing issues */
-}
-
-/* Header Styles */
-header {
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--secondary-color);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Logo Styles */
-header img {
-    width: 100px;
-    height: auto;
-}
-
-.nav-links {
+    color: var(--text-dark);
+    min-height: 100vh;
     display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+}
+
+/* === Refined Header & Navigation Styles === */
+header {
+  background: var(--primary-color);
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.header-container {
+  max-width: 1200px;       /* Constrains width on large screens */
+  margin: 0 auto;          /* Centers the container horizontally */
+  display: flex;           /* Flexbox for alignment */
+  align-items: center;     /* Vertically center items */
+  justify-content: space-between; /* Logo on left, nav on right */
+  padding: 1.5rem 3rem;    /* Extra padding for breathing room */
+}
+
+/* Logo */
+.logo {
+  width: 100px;            /* Adjust as needed */
+  height: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;           /* Places links in a horizontal row */
+  list-style: none;        /* Removes default list bullets */
+  gap: 2rem;               /* Spacing between links */
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #fff;             /* White text on dark background */
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;    /* Extra padding for a larger clickable area */
+  border-radius: 4px;      /* Rounded corners for hover effect */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
 }
 
 /* Main Heading */
@@ -118,70 +141,491 @@ header img {
 
 .adventures-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
+    align-items: start;
+    justify-items: center;
     margin-top: 1.5rem;
 }
 
 .adventures-gallery figure {
+    margin: 0;
     text-align: center;
 }
 
-/* Footer Styles */
-footer {
+.adventures-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+.adventures-gallery figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+/* Contact Section */
+.contact-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Contact Container Grid */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Company Info Section */
+.company-info {
+    background: var(--background-light);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.company-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-methods {
+    margin: 1.5rem 0;
+}
+
+.contact-methods p {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
-    background: #1a4567;
-    color: white;
+    gap: 0.5rem;
+    margin: 1rem 0;
 }
 
-footer p {
-    text-align: center;
-    flex: 1;
-    margin: 0.5rem 0;
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 1rem;
 }
 
-.social-links {
+/* Contact Form Styles */
+.contact-form {
+    background: var(--background-light);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.contact-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.radio-group {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.social-links img {
-    width: 32px;
-    height: 32px;
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
 }
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #004d00;
+}
+
+/* Employee Profiles */
+.employee-profiles {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.employee-profiles h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.employee-grid figure {
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.employee-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .about-hero {
-        flex-direction: column;
-    }
-
-    .hero-image img {
-        width: 100%;
-    }
-
-    .history-content {
+    .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
         text-align: center;
     }
 
-    .history-content img {
-        margin-top: 1rem;
-    }
-
-    .adventures-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    footer {
+    .nav-links {
         flex-direction: column;
         gap: 1rem;
     }
 
-    .social-links {
-        justify-content: center;
+    .employee-grid {
+        grid-template-columns: 1fr;
     }
+
+    .about-hero {
+            flex-direction: column;
+        }
+    
+    .hero-image img {
+            width: 100%;
+        }
+    
+    .history-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    
+    .history-content img {
+            margin-top: 1rem;
+        }
+    
+    .adventures-gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
 }
+
+
+
+/* === Home Page Specific Styles === */
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+  }
+  .hero-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .btn-cta {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: background var(--transition-speed);
+  }
+  .btn-cta:hover {
+    background: darkgreen;
+  }
+  
+  /* Newsletter Section */
+  .newsletter {
+    background: #f4f4f4;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+  .newsletter h2 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+  .newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .newsletter-form .form-group {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .newsletter-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .newsletter-form input[type="text"],
+  .newsletter-form input[type="email"] {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .newsletter-form .btn-submit {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background var(--transition-speed);
+    flex-basis: 100%;
+  }
+  .newsletter-form .btn-submit:hover {
+    background: darkgreen;
+  }
+  
+  /* Home Grid Section */
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .home-grid .grid-item {
+    text-align: center;
+  }
+  .home-grid .grid-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .home-grid .grid-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  /* === Trips Page Specific Styles === */
+  /* Trips Details Section */
+  .trips-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .trip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .trip img {
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+  }
+  .trip-info {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .trip-info h2 {
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+  }
+  .trip-info p {
+    margin-bottom: 1rem;
+  }
+  .trip-info .btn-cta {
+    align-self: flex-start;
+  }
+  
+  /* Trips Summary Table */
+  .trips-table {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+  }
+  .trips-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .trips-table th,
+  .trips-table td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  .trips-table th {
+    background: var(--secondary-color);
+    color: #fff;
+    font-weight: 700;
+  }
+
+
+  /* === Footer Restore Styles === */
+footer {
+    background: var(--primary-color);
+    color: white;
+    margin-top: auto; /* Ensures footer stays at the bottom if content is short */
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+  
+  /* Use a container to center content horizontally */
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;             /* Keep items in a row */
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Footer Text */
+  .footer-container p {
+    margin: 0;
+  }
+  
+  /* Footer Links */
+  footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+
+  /* Social Links */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+  
+  .social-links img {
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .social-links img:hover {
+    opacity: 0.8;
+  }
+  
+/* === Final Footer Styles === */
+footer {
+    background: var(--primary-color);
+    color: white;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+  }
+  
+  /* The text will occupy leftover space, centering itself */
+  .footer-container p {
+    flex: 1;           /* Fills the space between left and right */
+    text-align: center; 
+    margin: 0;
+  }
+  
+  /* Social links stay on the right side */
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Icon styling */
+  .social-links img {
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .social-links img:hover {
+    opacity: 0.8;
+  }
+  
+  footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+
